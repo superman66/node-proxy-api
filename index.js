@@ -6,8 +6,10 @@ var express = require('express');
 var request = require('superagent')
 
 var app = express();
-var HOST = 'http://api.douban.com/v2'
-
+var HOST = 'http://api.douban.com/v2';
+app.set('port', (process.env.PORT || 5000));
+app.set('port')
+    .listen(process.env.PORT || 5000)
 /**
  * CORS support.
  */
@@ -47,6 +49,6 @@ app.get('/movie/search', function (req, res) {
   });
 })
 
-app.listen(8081, function () {
-  console.log('HTTP Server is running in http://127.0.0.1:8081')
-})
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
