@@ -1,10 +1,16 @@
-# Node + Express + superagent 转发API请求
-简单的几行代码实现如何通过Node + Express + superagent 转发API请求。
+# Node + Express + superagent 转发 API 请求
+简单的几行代码实现如何通过Node + Express + superagent 转发 API 请求。已部署到 Heroku。
 **安装依赖**
 
-Node.js转发用到了 `express`和`superagent`. [superanget](https://github.com/visionmedia/superagent)是一个 Node.js HTTP client。
+Node.js 转发请求用到了 `express`和`superagent`. [superanget](https://github.com/visionmedia/superagent)是一个 Node.js HTTP client。
 ```
 npm i express superagent -S
+```
+
+**端口设置**
+由于部署到Heroku时，端口是动态分配的，所以需要根据 `process.env.NODE_ENV` 动态设置端口:
+```javascript
+app.set('port', (process.env.PORT || 5000));
 ```
 **定义接口**
 根据前端所需，定义了如下三个接口：
@@ -51,9 +57,9 @@ app.all('*', function (req, res, next) {
 ```
 **端口监听**
 ```javascript
-app.listen(8081, function () {
-  console.log('HTTP Server is running in http://127.0.0.1:8081')
-})
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
 ```
 **启动**
 
@@ -63,3 +69,6 @@ node index.js
 ```
 
 具体见`node-proxy/index.js`
+
+# 部署到Heroku
+详情见 [部署 Node.js 到 Heroku]()
