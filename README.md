@@ -9,11 +9,13 @@ npm i express superagent -S
 ```
 
 **端口设置**
+
 由于部署到Heroku时，端口是动态分配的，所以需要根据 `process.env.NODE_ENV` 动态设置端口:
 ```javascript
 app.set('port', (process.env.PORT || 5000));
 ```
 **定义接口**
+
 根据前端所需，定义了如下三个接口：
 ```javascript
 app.get('/movie/:type', function (req, res) {
@@ -42,6 +44,7 @@ app.get('/movie/search', function (req, res) {
 ```
 
 **CORS设置**
+
 >跨源资源共享 ( [CORS](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS) )机制让Web应用服务器能支持跨站访问控制，从而使得安全地进行跨站数据传输成为可能。
 主要是通过设置`Access-Control-Allow-Origin: *`
 ```javascript
@@ -57,6 +60,7 @@ app.all('*', function (req, res, next) {
 });
 ```
 **端口监听**
+
 ```javascript
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
