@@ -8,8 +8,6 @@ var request = require('superagent')
 var app = express();
 var HOST = 'http://api.douban.com/v2';
 app.set('port', (process.env.PORT || 5000));
-app.set('port')
-    .listen(process.env.PORT || 5000)
 /**
  * CORS support.
  */
