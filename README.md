@@ -76,4 +76,4 @@ node index.js
 具体见`node-proxy/index.js`
 
 # 部署到Heroku
-详情见 [部署 Node.js 到 Heroku]()
+详情见： [官方 Getting Started](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction)
