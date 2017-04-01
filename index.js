@@ -23,6 +23,7 @@ app.all('*', function (req, res, next) {
   next();
 });
 
+// 榜单信息
 app.get('/movie/:type', function (req, res) {
   var sreq = request.get(HOST + req.originalUrl)
   sreq.pipe(res);
