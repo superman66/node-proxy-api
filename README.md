@@ -5,7 +5,7 @@
 
 Node.js 转发请求用到了 `express`和`superagent`. [superanget](https://github.com/visionmedia/superagent)是一个 Node.js HTTP client。
 ```
-npm i express superagent -S
+npm install express superagent --save
 ```
 
 **端口设置**
