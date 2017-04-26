@@ -1,5 +1,7 @@
-# Node + Express + superagent 转发 API 请求
+# Node + Express + superagent 转发 Api 请求
 简单的几行代码实现如何通过Node + Express + superagent 转发 API 请求。已部署到 Heroku。
+
+**项目中用到了豆瓣电影 Api, 更多 Api请见 [豆瓣Api文档](https://developers.douban.com/wiki/?title=api_v2)**
 
 **安装依赖**
 
@@ -10,10 +12,11 @@ npm install express superagent --save
 
 **端口设置**
 
-由于部署到Heroku时，端口是动态分配的，所以需要根据 `process.env.NODE_ENV` 动态设置端口:
+由于部署到 Heroku 时，端口是动态分配的，所以需要根据 `process.env.NODE_ENV` 动态设置端口:
 ```javascript
 app.set('port', (process.env.PORT || 5000));
 ```
+如果不需要部署到 Heroku，端口可直接写死。
 **定义接口**
 
 根据前端所需，定义了如下三个接口：
